@@ -2,7 +2,9 @@
 Signal conditionning and Filtering for use in close range
 
 This range finder has a bad reading behavior (< 30cm) making the false signal jump to larger values (over 60cm)
+
 Refer to image BENEWAKE_Dist_Strength_Filtered.jpg for more details.
+
 
 
 BeneWake_TFMINI_CRC_Strength.ino

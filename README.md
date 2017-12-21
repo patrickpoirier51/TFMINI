@@ -2,11 +2,10 @@
 Signal conditionning and Filtering for use in close range
 
 This range finder has a bad reading behavior (< 30cm) making the false signal jump to larger values (over 60cm)
-Refer to TFMINI + Arduino.png for more details.
+Refer to image BENEWAKE_Dist_Strength_Filtered.jpg for more details.
 
 
-BeneWake_TFMINI_CRC_Strength.ino
-
+# BeneWake_TFMINI_CRC_Strength.ino
 This program reads the binary message in this format
 Byte1-2   Byte3   Byte4   Byte5     Byte6     Byte7     Byte8    Byte9
 0x59 59   Dist_L  Dist_H  Strength_L  Strength_H   Reserved   Raw.Qual  CheckSum_

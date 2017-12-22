@@ -15,7 +15,7 @@ SoftwareSerial mySerial(10, 11); // RX, TX
 uint8_t Framereceived[9];
 uint8_t index;
 uint16_t distance;
-uint16_t offset = 90;
+uint16_t offset = 10;
 uint16_t scale = 1;
 uint16_t strength;
 uint16_t strLimit = 1175;
@@ -57,8 +57,8 @@ void readlaser(){
              Framereceived[index]=inChar;
              if( Framereceived[1]=='Y'){
               if(Checksum(Framereceived, 8)==Framereceived[8]){
-              distance= (uint16_t)((Framereceived[2] + (Framereceived[3]*256))+100);
-              strength = (uint16_t)((Framereceived[4] + (Framereceived[5]*256))+100);
+              distance= (uint16_t)(Framereceived[2] + (Framereceived[3]*256));
+              strength = (uint16_t)(Framereceived[4] + (Framereceived[5]*256));
               //Serial.print(distance);
               //Serial.print("   -   ");
 
@@ -66,10 +66,10 @@ void readlaser(){
                   distance = distance - ((abs(strength - strLimit))/3) ;
                     }  
                   if ((strength > strLimit) && (distance > distLow)){
-                    distance = 240;
+                    distance = 140;
                       } 
                       
-                    distance = constrain(distance, 240, 9000);                    
+                    distance = constrain(distance, 140, 9000);                    
                     distance = ((distance - offset)/scale); 
                     //Serial.print(strength);
                     //Serial.print("   -   ");
